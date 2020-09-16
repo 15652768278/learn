@@ -44,31 +44,30 @@ type ListNode struct {
 }
 
 func BuildListNode(nums []int) *ListNode {
-	var head *ListNode
-	var point *ListNode
-	for _, v := range nums {
-		if head == nil {
-			head = &ListNode{Val: v}
-			point = head
-		} else {
-			point.Next = &ListNode{Val: v}
-			point = point.Next
-		}
+	if len(nums) == 0 {
+		return nil
 	}
-	return head
+	var sentry = &ListNode{Val: nums[0]}
+	var cursor = sentry
+	for i := 1; i < len(nums); i++ {
+		cursor.Next = &ListNode{Val: nums[i]}
+		cursor = cursor.Next
+	}
+	return sentry
 }
 
 func BuildCycleListNode(nums []int, target int) *ListNode {
-	var head *ListNode
-	var point *ListNode
-	for _, v := range nums {
-		if head == nil {
-			head = &ListNode{Val: v}
-			point = head
-		} else {
-			point.Next = &ListNode{Val: v}
-			point = point.Next
-		}
+	if target < 0 {
+		return BuildListNode(nums)
+	}
+	if len(nums) == 0 {
+		return nil
+	}
+	var head = &ListNode{Val: nums[0]}
+	point := head
+	for i := 1; i < len(nums); i++ {
+		point.Next = &ListNode{Val: nums[i]}
+		point = point.Next
 	}
 	cursor := head
 	for i := 0; i < target; i++ {
