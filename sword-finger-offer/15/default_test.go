@@ -1,9 +1,6 @@
 package main
 
-import (
-	"strconv"
-	"testing"
-)
+import "testing"
 
 func Test_hammingWeight(t *testing.T) {
 	type args struct {
@@ -28,6 +25,13 @@ func Test_hammingWeight(t *testing.T) {
 			},
 			want: 1,
 		},
+		{
+			name: "示例3",
+			args: args{
+				num: uint32(0b11111111111111111111111111111101),
+			},
+			want: 31,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -36,12 +40,4 @@ func Test_hammingWeight(t *testing.T) {
 			}
 		})
 	}
-}
-
-func transfer(s string) uint32 {
-	ans, err := strconv.ParseUint(s, 0, 0)
-	if err != nil {
-		panic(err)
-	}
-	return uint32(ans)
 }

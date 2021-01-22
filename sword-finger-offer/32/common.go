@@ -37,21 +37,6 @@ func BuildNode(nums [][]int) *Node {
 	return head
 }
 
-func (n *Node) ToArray() []int {
-	var result []int
-	cache := make(map[*Node]int)
-	for i, c := 0, n; c != nil; i, c = i+1, c.Next {
-		result = append(result, c.Val)
-		cache[c] = i
-	}
-	for c := n; c != nil; c = c.Next {
-		if c.Random != nil {
-			result = append(result, cache[c.Random])
-		}
-	}
-	return result
-}
-
 // List Node
 type ListNode struct {
 	Val  int

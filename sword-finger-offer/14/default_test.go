@@ -2,7 +2,7 @@ package main
 
 import "testing"
 
-func Test_climbStairs(t *testing.T) {
+func Test_cuttingRope(t *testing.T) {
 	type args struct {
 		n int
 	}
@@ -16,26 +16,26 @@ func Test_climbStairs(t *testing.T) {
 			args: args{
 				n: 2,
 			},
-			want: 2,
+			want: 1,
 		},
 		{
 			name: "示例2",
 			args: args{
-				n: 3,
+				n: 10,
 			},
-			want: 3,
+			want: 36,
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := climbStairs(tt.args.n); got != tt.want {
-				t.Errorf("climbStairs() = %v, want %v", got, tt.want)
+			if got := cuttingRope(tt.args.n); got != tt.want {
+				t.Errorf("cuttingRope() = %v, want %v", got, tt.want)
 			}
 		})
 	}
 }
 
-func Test_climbStairs2(t *testing.T) {
+func Test_cuttingRope2(t *testing.T) {
 	type args struct {
 		n int
 	}
@@ -49,27 +49,27 @@ func Test_climbStairs2(t *testing.T) {
 			args: args{
 				n: 2,
 			},
-			want: 2,
+			want: 1,
 		},
 		{
 			name: "示例2",
 			args: args{
-				n: 3,
+				n: 10,
 			},
-			want: 3,
+			want: 36,
 		},
 		{
 			name: "示例3",
 			args: args{
-				n: 44,
+				n: 120,
 			},
-			want: 1134903170,
+			want: 953271190,
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := climbStairs2(tt.args.n); got != tt.want {
-				t.Errorf("climbStairs2() = %v, want %v", got, tt.want)
+			if got := cuttingRope2(tt.args.n); got != tt.want {
+				t.Errorf("cuttingRope2() = %v, want %v", got, tt.want)
 			}
 		})
 	}
